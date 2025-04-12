@@ -2,29 +2,30 @@
 
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
-		<TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
 		<RootNamespace>$(MSBuildProjectName.Replace("-", "_"))</RootNamespace>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Copyright>Copyright 2011 Vincent Tan Wai Lip</Copyright>
 		<Company>NF Software Inc.</Company>
 		<Authors>Vincent Tan, NF Software Inc.</Authors>
-		<Version>3.6.0</Version>
-		<AssemblyVersion>3.6.0.0</AssemblyVersion>
-		<FileVersion>3.6.0.0</FileVersion>
+		<Version>3.7.0</Version>
+		<AssemblyVersion>3.7.0.0</AssemblyVersion>
+		<FileVersion>3.7.0.0</FileVersion>
 		<PackageId>SpreadsheetLight.Cross.Platform</PackageId>
 		<PackageTags>spreadsheetlight openxml excel export template xlsx</PackageTags>
-		<RepositoryUrl>https://github.com/thirstyape/spreadsheetlight-cross-platform</RepositoryUrl>
-		<PackageProjectUrl>https://github.com/thirstyape/spreadsheetlight-cross-platform</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform</PackageProjectUrl>
 		<Description>
 			SpreadsheetLight is an open source Open XML spreadsheet .NET library written in C#, and is released under the MIT License. You can create new Open XML spreadsheets, or work with existing Open XML spreadsheets that are compatible with Microsoft Excel 2007/2010/2013 and LibreOffice Calc.
 
 			No Office/Excel Interop needed. You do not need Microsoft Office/Excel to be installed.
 
-			This is a fork of the original code designed to run on .NET 6.0+. It also includes OS platform checks so that code requiring Windows will not execute on other platforms. Some features may not work on non-Windows platforms.
+			This is a fork of the original code designed to run on .NET Core. It also includes OS platform checks so that code requiring Windows will not execute on other platforms. Some features may not work on non-Windows platforms.
 		</Description>
 		<PackageReleaseNotes>
-			3.6.0
-			Drop support for .NET 7.0, Enable use in .NET 9.0, Bugfix for ArgumentOutOfRangeException on SLDocument creation on Linux (Issue #5)
+			3.7.0 Drop support for .NET 6.0 and add support for .NET 9.0
+
+			3.6.0 Drop support for .NET 7.0, Enable use in .NET 9.0, Bugfix for ArgumentOutOfRangeException on SLDocument creation on Linux (Issue #5)
 
 			3.5.8 Bugfix for NullReferenceException on SLDocument creation on Linux (PR #4)
 			3.5.7 Add DateOnly and TimeOnly support to SetCellValue and ImportDataTable
@@ -62,7 +63,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="DocumentFormat.OpenXml" Version="[2.18.0,3)" />
-		<PackageReference Include="System.Drawing.Common" Version="[6.0.0,10)" />
+		<PackageReference Include="System.Drawing.Common" Version="[8.0.0,10)" />
 	</ItemGroup>
 
 	<ItemGroup>

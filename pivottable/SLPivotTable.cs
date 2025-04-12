@@ -71,27 +71,24 @@ internal class SLPivotFieldType
 	}
 }
 
+/// <summary>
+/// Defines properties and methods for a PivotTable.
+/// </summary>
 public class SLPivotTable
 {
-	//CT_pivotTableDefinition
-	//DocumentFormat.OpenXml.Spreadsheet.PivotTableDefinition
-
 	//From Open XML specs: When encountering sheet boundaries, the PivotTable is truncated rather than wrapped, and as much as possible shall be shown.
 
 	/*
-     * <x:pivotCacheDefinition xmlns:x14="http://schemas.microsoft.com/office/spreadsheetml/2009/9/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" r:id="rId1" refreshedBy="Vincent" refreshedDate="41315.775251967592" createdVersion="5" refreshedVersion="5" minRefreshableVersion="3" recordCount="5" xmlns:x="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
-<x:cacheSource type="worksheet">
-<x:worksheetSource ref="A1:D6" sheet="Sheet1" />
-</x:cacheSource>
+     	<x:pivotCacheDefinition xmlns:x14="http://schemas.microsoft.com/office/spreadsheetml/2009/9/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" r:id="rId1" refreshedBy="Vincent" refreshedDate="41315.775251967592" createdVersion="5" refreshedVersion="5" minRefreshableVersion="3" recordCount="5" xmlns:x="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+			<x:cacheSource type="worksheet">
+			<x:worksheetSource ref="A1:D6" sheet="Sheet1" />
+		</x:cacheSource>
 
-
-<x:pivotCacheDefinition xmlns:x14="http://schemas.microsoft.com/office/spreadsheetml/2009/9/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" r:id="rId1" refreshedBy="Vincent" refreshedDate="41315.776955555557" createdVersion="5" refreshedVersion="5" minRefreshableVersion="3" recordCount="5" xmlns:x="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
-<x:cacheSource type="worksheet">
-<x:worksheetSource name="Table1" />
-</x:cacheSource>
-     * */
-
-	// Pivot tables can have the same names as normal tables.
+		<x:pivotCacheDefinition xmlns:x14="http://schemas.microsoft.com/office/spreadsheetml/2009/9/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" r:id="rId1" refreshedBy="Vincent" refreshedDate="41315.776955555557" createdVersion="5" refreshedVersion="5" minRefreshableVersion="3" recordCount="5" xmlns:x="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+			<x:cacheSource type="worksheet">
+			<x:worksheetSource name="Table1" />
+		</x:cacheSource>
+     */
 
 	internal bool IsValid
 	{

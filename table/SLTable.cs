@@ -86,7 +86,6 @@ public class SLTable
     }
 
     // The maximum length of this string should be 32,767 characters
-    // We're not going to check this... TODO ?
     internal string Comment { get; set; }
 
     internal int StartRowIndex { get; set; }

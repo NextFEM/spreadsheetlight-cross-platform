@@ -3,6 +3,9 @@ using SLA = SpreadsheetLight.Drawing;
 
 namespace SpreadsheetLight.Charts;
 
+/// <summary>
+/// Encapsulates properties and methods for specifying trendlines.
+/// </summary>
 public class SLTrendline
 {
     /// <summary>
@@ -113,18 +116,12 @@ public class SLTrendline
     /// <summary>
     /// Default constructor.
     /// </summary>
-    public SLTrendline()
-    {
-    }
+    public SLTrendline() { }
 
-    internal C.Trendline ToTrendline(bool IsStylish)
-    {
-        C.Trendline tl = new C.Trendline();
-        tl.DisplayEquation = new C.DisplayEquation() { Val = true };
-        tl.TrendlineType = new C.TrendlineType() { Val = C.TrendlineValues.Linear };
-
-        tl.TrendlineLabel = this.TrendlineLabel.ToTrendlineLabel(IsStylish);
-
-        return tl;
-    }
+    internal C.Trendline ToTrendline(bool IsStylish) => new()
+	{
+		DisplayEquation = new C.DisplayEquation() { Val = true },
+		TrendlineType = new C.TrendlineType() { Val = C.TrendlineValues.Linear },
+		TrendlineLabel = this.TrendlineLabel.ToTrendlineLabel(IsStylish)
+	};
 }

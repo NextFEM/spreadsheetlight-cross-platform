@@ -1110,8 +1110,6 @@ public class SLChart
         }
     }
 
-    // TODO! What's the correct bubble chart behaviour?
-
     /// <summary>
     /// Set a bubble chart using one of the built-in bubble chart types.
     /// </summary>

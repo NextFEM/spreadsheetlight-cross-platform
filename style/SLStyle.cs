@@ -935,8 +935,6 @@ public class SLStyle
         this.Alignment.Horizontal = HorizontalAlignment;
     }
 
-    // TODO rotational shortcut functions
-
     /// <summary>
     /// Toggle wrap text settings.
     /// </summary>
@@ -1630,46 +1628,18 @@ public class SLStyle
                 break;
             case SLNamedCellStyleValues.Comma:
                 this.FormatCode = "_(* #,##0.00_);_(* \\(#,##0.00\\);_(* \"-\"??_);_(@_)";
-                // not using the "builtin" format ID
-                //this.nfFormatCode.NumberFormatId = 43;
-
-                // the font, fill and border are not changed
-
-                // TODO get "actual" comma character from regional settings?
                 break;
             case SLNamedCellStyleValues.Comma0:
                 this.FormatCode = "_(* #,##0_);_(* \\(#,##0\\);_(* \"-\"_);_(@_)";
-                // not using the "builtin" format ID
-                //this.nfFormatCode.NumberFormatId = 41;
-
-                // the font, fill and border are not changed
-
-                // TODO get "actual" comma character from regional settings?
                 break;
             case SLNamedCellStyleValues.Currency:
                 this.FormatCode = "_(\"$\"* #,##0.00_);_(\"$\"* \\(#,##0.00\\);_(\"$\"* \"-\"??_);_(@_)";
-                // not using the "builtin" format ID
-                //this.nfFormatCode.NumberFormatId = 44;
-
-                // the font, fill and border are not changed
-
-                // TODO get "actual" currency character from regional settings?
                 break;
             case SLNamedCellStyleValues.Currency0:
                 this.FormatCode = "_(\"$\"* #,##0_);_(\"$\"* \\(#,##0\\);_(\"$\"* \"-\"_);_(@_)";
-                // not using the "builtin" format ID
-                //this.nfFormatCode.NumberFormatId = 42;
-
-                // the font, fill and border are not changed
-
-                // TODO get "actual" currency character from regional settings?
                 break;
             case SLNamedCellStyleValues.Percentage:
                 this.FormatCode = "0%";
-                // not using the "builtin" format ID
-                //this.nfFormatCode.NumberFormatId = 9;
-
-                // the font, fill and border are not changed
                 break;
         }
     }

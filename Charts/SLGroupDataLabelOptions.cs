@@ -12,7 +12,6 @@ public class SLGroupDataLabelOptions : EGDLblShared
     /// Specifies if leader lines are shown. This is for pie charts (I think...).
     /// </summary>
     public bool ShowLeaderLines { get; set; }
-    // TODO Leaderlines (pie charts)
 
     internal SLGroupDataLabelOptions(List<System.Drawing.Color> ThemeColors, bool ThrowExceptionsIfAny)
         : base(ThemeColors, ThrowExceptionsIfAny)

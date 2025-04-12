@@ -577,8 +577,6 @@ public class SLShadowEffect
         }
     }
 
-    // TODO overload setting of inner and outer shadow functions here
-
     internal A.InnerShadow ToInnerShadow()
     {
         A.InnerShadow ishad = new A.InnerShadow();

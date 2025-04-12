@@ -1006,12 +1006,8 @@ public partial class SLDocument
                 }
             }
 
-            // TODO: tables!
-
             // cutting and pasting into a region with merged cells unmerges the existing merged cells
             // copying and pasting into a region with merged cells leaves existing merged cells alone.
-            // Why does Excel do that? Don't know.
-            // Will just standardise to leaving existing merged cells alone.
             List<SLMergeCell> mca = this.GetWorksheetMergeCells();
             foreach (SLMergeCell mc in mca)
             {
@@ -1370,41 +1366,16 @@ public partial class SLDocument
             }
             #endregion
 
-            // TODO: chart series references
-
             #region Calculation chain
             if (slwb.CalculationCells.Count > 0)
             {
-                // I don't know enough to fiddle with calculation chains. So I'm going to ignore it.
                 slwb.CalculationCells.Clear();
-
-                //foreach (SLCalculationCell cc in slwb.CalculationCells)
-                //{
-                //    if (cc.SheetId == giSelectedWorksheetID)
-                //    {
-                //        iRowIndex = cc.RowIndex;
-                //        // don't need this but assign something anyway...
-                //        iRowIndex2 = SLConstants.RowLimit;
-
-                //        this.AddRowColumnIndexDelta(StartRowIndex, NumberOfRows, true, ref iRowIndex, ref iRowIndex2);
-                //        cc.RowIndex = iRowIndex;
-                //    }
-                //}
             }
             #endregion
 
             #region Defined names
             if (slwb.DefinedNames.Count > 0)
             {
-                //string sDefinedNameText = string.Empty;
-                //foreach (SLDefinedName d in slwb.DefinedNames)
-                //{
-                //    sDefinedNameText = d.Text;
-                //    sDefinedNameText = AddDeleteCellFormulaDelta(sDefinedNameText, StartRowIndex, NumberOfRows, -1, 0);
-                //    sDefinedNameText = AddDeleteDefinedNameRowColumnRangeDelta(sDefinedNameText, true, StartRowIndex, NumberOfRows);
-                //    d.Text = sDefinedNameText;
-                //}
-
                 // not doing anything with this but using it to pass to the function
                 bool bHasError = false;
                 foreach (SLDefinedName d in slwb.DefinedNames)
@@ -2089,51 +2060,16 @@ public partial class SLDocument
             }
             #endregion
 
-            // TODO: chart series references
-
             #region Calculation chain
             if (slwb.CalculationCells.Count > 0)
             {
-                // I don't know enough to fiddle with calculation chains. So I'm going to ignore it.
                 slwb.CalculationCells.Clear();
-
-                //List<int> listToDelete = new List<int>();
-                //for (i = 0; i < slwb.CalculationCells.Count; ++i)
-                //{
-                //    if (slwb.CalculationCells[i].SheetId == giSelectedWorksheetID)
-                //    {
-                //        if (StartRowIndex <= slwb.CalculationCells[i].RowIndex && slwb.CalculationCells[i].RowIndex <= iEndRowIndex)
-                //        {
-                //            listToDelete.Add(i);
-                //        }
-                //        else if (iEndRowIndex < slwb.CalculationCells[i].RowIndex)
-                //        {
-                //            slwb.CalculationCells[i].RowIndex -= iNumberOfRows;
-                //        }
-                //    }
-                //}
-
-                //// start from the back because we're deleting elements and we don't want
-                //// the indices to get messed up.
-                //for (i = listToDelete.Count - 1; i >= 0; --i)
-                //{
-                //    slwb.CalculationCells.RemoveAt(listToDelete[i]);
-                //}
             }
             #endregion
 
             #region Defined names
             if (slwb.DefinedNames.Count > 0)
             {
-                //string sDefinedNameText = string.Empty;
-                //foreach (SLDefinedName d in slwb.DefinedNames)
-                //{
-                //    sDefinedNameText = d.Text;
-                //    sDefinedNameText = AddDeleteCellFormulaDelta(sDefinedNameText, StartRowIndex, -NumberOfRows, -1, 0);
-                //    sDefinedNameText = AddDeleteDefinedNameRowColumnRangeDelta(sDefinedNameText, true, StartRowIndex, -NumberOfRows);
-                //    d.Text = sDefinedNameText;
-                //}
-
                 // not doing anything with this but using it to pass to the function
                 bool bHasError = false;
                 foreach (SLDefinedName d in slwb.DefinedNames)
@@ -3070,12 +3006,8 @@ public partial class SLDocument
                 }
             }
 
-            // TODO: tables!
-
             // cutting and pasting into a region with merged cells unmerges the existing merged cells
             // copying and pasting into a region with merged cells leaves existing merged cells alone.
-            // Why does Excel do that? Don't know.
-            // Will just standardise to leaving existing merged cells alone.
             List<SLMergeCell> mca = this.GetWorksheetMergeCells();
             foreach (SLMergeCell mc in mca)
             {
@@ -3092,33 +3024,7 @@ public partial class SLDocument
             #region Calculation cells
             if (slwb.CalculationCells.Count > 0)
             {
-                // I don't know enough to fiddle with calculation chains. So I'm going to ignore it.
                 slwb.CalculationCells.Clear();
-
-                //List<int> listToDelete = new List<int>();
-                //int iColumnLimit = AnchorColumnIndex + iStartColumnIndex - iEndColumnIndex;
-                //for (i = 0; i < slwb.CalculationCells.Count; ++i)
-                //{
-                //    if (slwb.CalculationCells[i].SheetId == giSelectedWorksheetID)
-                //    {
-                //        if (ToCut && slwb.CalculationCells[i].ColumnIndex >= iStartColumnIndex && slwb.CalculationCells[i].ColumnIndex <= iEndColumnIndex)
-                //        {
-                //            // just remove because recalculation of cell references is too complicated...
-                //            if (!listToDelete.Contains(i)) listToDelete.Add(i);
-                //        }
-
-                //        if (slwb.CalculationCells[i].ColumnIndex >= AnchorColumnIndex && slwb.CalculationCells[i].ColumnIndex <= iColumnLimit)
-                //        {
-                //            // existing calculation cell lies within destination "paste" operation
-                //            if (!listToDelete.Contains(i)) listToDelete.Add(i);
-                //        }
-                //    }
-                //}
-
-                //for (i = listToDelete.Count - 1; i >= 0; --i)
-                //{
-                //    slwb.CalculationCells.RemoveAt(listToDelete[i]);
-                //}
             }
             #endregion
 
@@ -3815,26 +3721,10 @@ public partial class SLDocument
             }
             #endregion
 
-            // TODO: chart series references
-
             #region Calculation chain
             if (slwb.CalculationCells.Count > 0)
             {
-                // I don't know enough to fiddle with calculation chains. So I'm going to ignore it.
                 slwb.CalculationCells.Clear();
-
-                //foreach (SLCalculationCell cc in slwb.CalculationCells)
-                //{
-                //    if (cc.SheetId == giSelectedWorksheetID)
-                //    {
-                //        iColumnIndex = cc.ColumnIndex;
-                //        // don't need this but assign something anyway...
-                //        iColumnIndex2 = SLConstants.ColumnLimit;
-
-                //        this.AddRowColumnIndexDelta(StartColumnIndex, NumberOfColumns, false, ref iColumnIndex, ref iColumnIndex2);
-                //        cc.ColumnIndex = iColumnIndex;
-                //    }
-                //}
             }
             #endregion
 
@@ -4555,36 +4445,10 @@ public partial class SLDocument
             }
             #endregion
 
-            // TODO: chart series references
-
             #region Calculation chain
             if (slwb.CalculationCells.Count > 0)
             {
-                // I don't know enough to fiddle with calculation chains. So I'm going to ignore it.
                 slwb.CalculationCells.Clear();
-
-                //List<int> listToDelete = new List<int>();
-                //for (i = 0; i < slwb.CalculationCells.Count; ++i)
-                //{
-                //    if (slwb.CalculationCells[i].SheetId == giSelectedWorksheetID)
-                //    {
-                //        if (StartColumnIndex <= slwb.CalculationCells[i].ColumnIndex && slwb.CalculationCells[i].ColumnIndex <= iEndColumnIndex)
-                //        {
-                //            listToDelete.Add(i);
-                //        }
-                //        else if (iEndColumnIndex < slwb.CalculationCells[i].ColumnIndex)
-                //        {
-                //            slwb.CalculationCells[i].ColumnIndex -= iNumberOfColumns;
-                //        }
-                //    }
-                //}
-
-                //// start from the back because we're deleting elements and we don't want
-                //// the indices to get messed up.
-                //for (i = listToDelete.Count - 1; i >= 0; --i)
-                //{
-                //    slwb.CalculationCells.RemoveAt(listToDelete[i]);
-                //}
             }
             #endregion
 

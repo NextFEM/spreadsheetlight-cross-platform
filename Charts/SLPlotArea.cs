@@ -177,12 +177,6 @@ public class SLPlotArea
         int iChartType;
         int i;
 
-        // TODO: the rendering order is sort of listed in the following.
-        // But apparently if you plot data series for doughnut first before bar-of-pie
-        // it's different than if you plot bar-of-pie then doughnut.
-        // Find out the "correct" order next version I suppose...
-
-        // Excel 2010 apparently sets this by default for any chart...
         SLGroupDataLabelOptions gdlo = new SLGroupDataLabelOptions(this.ShapeProperties.listThemeColors, this.ShapeProperties.ThrowExceptionsIfAny);
         gdlo.ShowLegendKey = false;
         gdlo.ShowValue = false;

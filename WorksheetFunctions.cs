@@ -229,7 +229,6 @@ public partial class SLDocument
             dn.Text = Regex.Replace(dn.Text, sPattern, sReplacement);
         }
 
-        // TODO update for cells in other worksheets
         // One of the few cases where having a shared formula repository is useful... (like shared strings)
         SLCell c;
         List<int> listRowKeys = slws.CellWarehouse.Cells.Keys.ToList<int>();
@@ -1061,10 +1060,6 @@ public partial class SLDocument
             this.FeedDataImagePart(imgpNew, imgp);
         }
 
-        #region NotesSlidePart
-        // TODO: there are a lot of stuff here...
-        #endregion
-
         if (ExistingPart.SlideCommentsPart != null)
         {
             NewPart.AddNewPart<SlideCommentsPart>(ExistingPart.GetIdOfPart(ExistingPart.SlideCommentsPart));
@@ -1076,10 +1071,6 @@ public partial class SLDocument
                 }
             }
         }
-
-        #region SlideLayoutPart
-        // TODO: there are a lot of stuff here...
-        #endregion
 
         // what is going on? A SlidePart with SlideParts...
         // Hesitate to do this...
@@ -1497,8 +1488,6 @@ public partial class SLDocument
     {
         slws.SheetFormatProperties.DefaultRowHeight = RowHeight;
         slws.SheetFormatProperties.CustomHeight = true;
-
-        // TODO: resize images and charts
     }
 
     /// <summary>
@@ -1508,7 +1497,6 @@ public partial class SLDocument
     public void SetWorksheetDefaultColumnWidth(double ColumnWidth)
     {
         slws.SheetFormatProperties.DefaultColumnWidth = ColumnWidth;
-        // TODO: resize images and charts
     }
 
     /// <summary>
@@ -2982,7 +2970,6 @@ public partial class SLDocument
             }
             else if (sheet.SheetType == SLSheetType.Macrosheet)
             {
-                // not doing anything for macrosheets. What *are* macrosheets?
             }
         }
 
@@ -2993,9 +2980,6 @@ public partial class SLDocument
     {
         if (ps.bShowFormulas != null)
         {
-            // TODO: images and charts?
-            // Actually I don't feel like updating those...
-
             if (ps.bShowFormulas.Value != slws.IsDoubleColumnWidth)
             {
                 List<int> keys = slws.ColumnProperties.Keys.ToList<int>();

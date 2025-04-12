@@ -139,8 +139,6 @@ public class SLComment
     internal List<System.Drawing.Color> listThemeColors;
     internal bool ThrowExceptionsIfAny { get; set; }
 
-    // TODO: move with cells and size with cells
-
     internal string sAuthor;
     /// <summary>
     /// The author of the comment.

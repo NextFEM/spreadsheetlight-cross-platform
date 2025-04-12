@@ -3,6 +3,9 @@ using SLA = SpreadsheetLight.Drawing;
 
 namespace SpreadsheetLight.Charts;
 
+/// <summary>
+/// Encapsulates properties and methods for specifying trendline labels.
+/// </summary>
 public class SLTrendlineLabel
 {
     internal SLLayout Layout { get; set; }
@@ -49,10 +52,6 @@ public class SLTrendlineLabel
     /// </summary>
     public SLA.SLFormat3D Format3D { get { return this.ShapeProperties.Format3D; } }
 
-    // TODO: ignoring rich text content
-    // TODO: ignoring text alignment properties for now
-    // TODO: ignoring text body properties for now
-
     internal SLTrendlineLabel(List<System.Drawing.Color> ThemeColors, bool ThrowExceptionsIfAny)
     {
         this.Layout = new SLLayout();
@@ -63,11 +62,15 @@ public class SLTrendlineLabel
 
     internal C.TrendlineLabel ToTrendlineLabel(bool IsStylish)
     {
-        C.TrendlineLabel tll = new C.TrendlineLabel();
-        tll.Layout = this.Layout.ToLayout();
-        tll.NumberingFormat = new C.NumberingFormat();
-        tll.NumberingFormat.FormatCode = this.FormatCode;
-        tll.NumberingFormat.SourceLinked = this.SourceLinked;
+		var tll = new C.TrendlineLabel()
+		{
+			Layout = this.Layout.ToLayout(),
+			NumberingFormat = new C.NumberingFormat()
+            {
+				FormatCode = this.FormatCode,
+				SourceLinked = this.SourceLinked
+			}
+		};
 
         if (this.ShapeProperties.HasShapeProperties)
         {

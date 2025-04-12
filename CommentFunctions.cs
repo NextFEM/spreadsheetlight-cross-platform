@@ -362,7 +362,7 @@ public partial class SLDocument
                         comm.Fill.PatternForegroundColor.DisplayColor.G.ToString("x2"),
                         comm.Fill.PatternForegroundColor.DisplayColor.B.ToString("x2"));
                 }
-                
+
                 if (comm.LineColor != null)
                 {
                     sbVml.AppendFormat(" strokecolor=\"#{0}{1}{2}\"",
@@ -525,7 +525,7 @@ public partial class SLDocument
                     using (FileStream fs = new FileStream(comm.Fill.BlipFileName, FileMode.Open))
                     {
                         byte[] ba = new byte[fs.Length];
-                        fs.Read(ba, 0, ba.Length);
+                        fs.ReadExactly(ba, 0, ba.Length);
                         string sImageData = Convert.ToBase64String(ba);
                         if (dictImageData.ContainsKey(sImageData))
                         {
@@ -554,7 +554,7 @@ public partial class SLDocument
                             dictImageData[sImageData] = sRelId;
                         }
                     }
-                    
+
                     sbVml.AppendFormat(" o:relid=\"{0}\"", comm.Fill.BlipRelationshipID);
 
                     // all this to get from "myawesomepicture.jpg" to "myawesomepicture"
@@ -645,7 +645,7 @@ public partial class SLDocument
                             dictImageData[sImageData] = sRelId;
                         }
                     }
-                    
+
                     sbVml.AppendFormat(" o:relid=\"{0}\"", comm.Fill.BlipRelationshipID);
 
                     sbVml.AppendFormat(" o:title=\"{0}\"", SLA.SLDrawingTool.ConvertToVmlTitle(comm.Fill.PatternPreset));
@@ -803,7 +803,7 @@ public partial class SLDocument
                 //sbVml.Append("2, 15, 2, 14, 4, 23, 6, 19");
                 //sbVml.Append("</x:Anchor>");
                 sbVml.Append("<x:AutoFill>False</x:AutoFill>");
-                
+
                 switch (comm.HorizontalTextAlignment)
                 {
                     case SLHorizontalTextAlignmentValues.Left:

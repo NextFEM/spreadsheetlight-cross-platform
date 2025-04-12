@@ -40,7 +40,7 @@ namespace SpreadsheetLight;
 /// </summary>
 public partial class SLDocument : IDisposable
 {
-    private MemoryStream memstream;
+    private readonly MemoryStream memstream;
     private SpreadsheetDocument xl;
     internal WorkbookPart wbp;
     private string gsSpreadsheetFileName = string.Empty;
@@ -346,7 +346,7 @@ public partial class SLDocument : IDisposable
     {
         SpreadsheetStream.Position = 0;
         byte[] baData = new byte[SpreadsheetStream.Length];
-        SpreadsheetStream.Read(baData, 0, baData.Length);
+        SpreadsheetStream.ReadExactly(baData, 0, baData.Length);
         memstream = new MemoryStream();
         memstream.Write(baData, 0, baData.Length);
 
@@ -366,7 +366,7 @@ public partial class SLDocument : IDisposable
     {
         SpreadsheetStream.Position = 0;
         byte[] baData = new byte[SpreadsheetStream.Length];
-        SpreadsheetStream.Read(baData, 0, baData.Length);
+		SpreadsheetStream.ReadExactly(baData, 0, baData.Length);
         memstream = new MemoryStream();
         memstream.Write(baData, 0, baData.Length);
 
@@ -686,13 +686,13 @@ public partial class SLDocument : IDisposable
 
     private void InitialiseAutoFitCache()
     {
-        this.dictAutoFitSharedStringCache = new Dictionary<string, SizeF>();
-        this.dictAutoFitTextCache = new Dictionary<string, SizeF>();
-        this.dictAutoFitFormatCodeCache = new Dictionary<int, string>();
-        this.dictAutoFitTextRotationCache = new Dictionary<int, int>();
+        this.dictAutoFitSharedStringCache = [];
+        this.dictAutoFitTextCache = [];
+		this.dictAutoFitFormatCodeCache = [];
+		this.dictAutoFitTextRotationCache = [];
 
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            this.dictAutoFitFontCache = new Dictionary<int, System.Drawing.Font>();
+		if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            this.dictAutoFitFontCache = [];
     }
 
     private void InitialiseStylesheetWhatNots(SLThemeTypeValues ThemeType)
@@ -1179,35 +1179,6 @@ public partial class SLDocument : IDisposable
                 slws.Tables.Add(t);
             }
         }
-
-        // TODO: as at 17 Jan 2014, I have forgotten what I planned to do here. Go me...
-        // I think there's an order and priority to the conditional formats, and it depends
-        // on whether it's normal conditional formats or the new 2010 version.
-        // I must've done some research, but I can't find the results already... poor future Vincent...
-
-        // determine priority and order of conditional formats
-        //if (slws.ConditionalFormattings.Count == 0 && slws.ConditionalFormattings2010.Count == 0)
-        //{
-        //    // this is probably the most common, so put it as the first condition (pun, haha)
-        //    // for optimisation. Aaaannnddd, we don't have to do anything here. Awesome, right?
-        //}
-        //else if (slws.ConditionalFormattings.Count > 0 && slws.ConditionalFormattings2010.Count == 0)
-        //{
-        //    for (int i = 0; i < slws.ConditionalFormattings.Count; ++i)
-        //    {
-        //        slws.ConditionalFormatOrder.Add(new SLConditionalFormatOrder()
-        //        {
-        //            Version = SLConditionalFormatVersionValue.Office
-        //        });
-        //    }
-        //}
-        //else if (slws.ConditionalFormattings.Count == 0 && slws.ConditionalFormattings2010.Count > 0)
-        //{
-        //}
-        //else if (slws.ConditionalFormattings.Count > 0 && slws.ConditionalFormattings2010.Count > 0)
-        //{
-        //}
-        // no else because all conditions already in one of the if conditions.
     }
 
     private void WriteSelectedWorksheet()
@@ -3388,9 +3359,6 @@ public partial class SLDocument : IDisposable
                     csv.TabSelected = null;
                 }
             }
-            // no else because we'll just ignore
-
-            // TODO: Custom chart sheet views?
 
             csp.Chartsheet.Save();
         }
@@ -3407,9 +3375,6 @@ public partial class SLDocument : IDisposable
                     sv.TabSelected = null;
                 }
             }
-            // no else because we'll just ignore
-
-            // TODO: Custom sheet views?
 
             dsp.DialogSheet.Save();
         }
@@ -3426,9 +3391,6 @@ public partial class SLDocument : IDisposable
                     sv.TabSelected = null;
                 }
             }
-            // no else because we'll just ignore
-
-            // TODO: Custom sheet views?
 
             msp.Macrosheet.Save();
         }

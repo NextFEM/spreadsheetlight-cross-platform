@@ -2,6 +2,9 @@
 
 namespace SpreadsheetLight;
 
+/// <summary>
+/// A list of style types for Pivot Tables.
+/// </summary>
 public enum SLPivotTableStyleTypeValues
 {
     /// <summary>

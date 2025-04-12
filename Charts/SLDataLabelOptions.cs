@@ -8,8 +8,6 @@ namespace SpreadsheetLight.Charts;
 /// </summary>
 public class SLDataLabelOptions : EGDLblShared
 {
-    // TODO Layout?
-
     internal SLRstType RichText { get; set; }
 
     internal SLDataLabelOptions(List<System.Drawing.Color> ThemeColors, bool ThrowExceptionsIfAny)

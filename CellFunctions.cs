@@ -973,14 +973,8 @@ public partial class SLDocument
             }
             else
             {
-                // For simplicity, we're gonna assume that if it starts with an equal sign, it's a formula.
-
-                // TODO Formula calculation engine. Actually nope...
                 c.DataType = CellValues.Number;
-                //c.Formula = new CellFormula(slxe.Write(Data.Substring(1)));
                 c.CellFormula = new SLCellFormula();
-                //c.CellFormula.FormulaText = SLTool.XmlWrite(Data.Substring(1));
-                // apparently, you don't need to XML-escape double quotes otherwise there's an error.
                 c.CellFormula.FormulaText = Data.Substring(1);
                 c.CellText = string.Empty;
                 slws.CellWarehouse.SetValue(RowIndex, ColumnIndex, c);
@@ -3343,27 +3337,14 @@ public partial class SLDocument
                 foreach (int colkey in listColumnKeys)
                 {
                     origcell = cells.Cells[rowkey][colkey];
-                    //if (PasteOption != SLPasteTypeValues.Transpose)
-                    //{
-                    //    //this.ProcessCellFormulaDelta(ref origcell, AnchorRowIndex, iNumberOfRows, AnchorColumnIndex, iNumberOfColumns);
-                    //    this.ProcessCellFormulaDelta(ref origcell, iNumberOfRows, iNumberOfColumns);
-                    //}
-                    //else
-                    //{
-                    //    //this.ProcessCellFormulaDelta(ref origcell, AnchorRowIndex, iNumberOfColumns, AnchorColumnIndex, iNumberOfRows);
-                    //    this.ProcessCellFormulaDelta(ref origcell, iNumberOfColumns, iNumberOfRows);
-                    //}
                     slws.CellWarehouse.SetValue(rowkey, colkey, origcell);
                 }
             }
 
-            // TODO: tables!
-
             // cutting and pasting into a region with merged cells unmerges the existing merged cells
             // copying and pasting into a region with merged cells leaves existing merged cells alone.
-            // Why does Excel do that? Don't know.
-            // Will just standardise to leaving existing merged cells alone.
             List<SLMergeCell> mca = this.GetWorksheetMergeCells();
+
             foreach (SLMergeCell mc in mca)
             {
                 if (mc.StartRowIndex >= iStartRowIndex && mc.EndRowIndex <= iEndRowIndex
@@ -3400,8 +3381,6 @@ public partial class SLDocument
                     }
                 }
             }
-
-            // TODO: conditional formatting and data validations?
 
             #region Hyperlinks
             if (slws.Hyperlinks.Count > 0)
@@ -4262,8 +4241,6 @@ public partial class SLDocument
                     slws.MergeCells.Remove(mc);
                 }
             }
-
-            // TODO: conditional formatting and data validations?
 
             #region Hyperlinks
             if (sourcehyperlinks.Count > 0)

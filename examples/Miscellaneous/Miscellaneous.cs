@@ -52,45 +52,52 @@ namespace ConsoleApp
                     }
                 }
 
-                Dictionary<SLCellPoint, SLCell> cells = sl.GetCells();
+                Dictionary<int, Dictionary<int, SLCell>> cells = sl.GetCells();
 
                 sl.SetCellValue("I2", string.Format("There are {0} boolean values",
-                    cells.Where(bl => bl.Value.DataType == CellValues.Boolean).Count()));
+                    cells.SelectMany(outerEntry => outerEntry.Value.Values).Count(
+						cell => cell.DataType == CellValues.Boolean
+						)
+					));
 
                 SLCell cell;
-                
+
                 sl.SetCellValue("I4", "Values below 500 (CellRefs)");
                 i = 5; // start from row 5
-                foreach (var kvp in cells.Where(num => num.Value.DataType == CellValues.Number))
-                {
-                    // The Key of the dictionary is SLCellPoint
-                    cell = cells[kvp.Key];
-                    if (cell.CellText != null)
-                    {
-                        // note that PI or E is stored in CellText even though it's a number,
-                        // via the SetCellValueNumeric() function.
-                        // This is in case you want to force-store a number you want that's in
-                        // a string form, and/or you want it stored *exactly* as it is in Excel.
-                        // This is why it's complicated.
-                        // This is also why it's not encouraged to get values using the SLCell object.
-                        // SLCell had a scope originally as internal (or *not public*).
-                        // You've been warned. Have fun though!
-                        fValue = Convert.ToDouble(cell.CellText);
-                    }
-                    else
-                    {
-                        // if CellText is null, then the NumericValue is used.
-                        fValue = cell.NumericValue;
-                    }
+                foreach (var outerEntry in cells) {
+					foreach(var innerEntry in outerEntry.Value) {
+						var Row = outerEntry.Key;
+						var Column = innerEntry.Key;
+						cell = innerEntry.Value;
+						if (cell.DataType == CellValues.Number)
+						{
+							if (cell.CellText != null)
+							{
+								// note that PI or E is stored in CellText even though it's a number,
+								// via the SetCellValueNumeric() function.
+								// This is in case you want to force-store a number you want that's in
+								// a string form, and/or you want it stored *exactly* as it is in Excel.
+								// This is why it's complicated.
+								// This is also why it's not encouraged to get values using the SLCell object.
+								// SLCell had a scope originally as internal (or *not public*).
+								// You've been warned. Have fun though!
+								fValue = Convert.ToDouble(cell.CellText);
+							}
+							else
+							{
+								// if CellText is null, then the NumericValue is used.
+								fValue = cell.NumericValue;
+							}
 
-                    if (fValue < 500)
-                    {
-                        sl.SetCellValue(i, 9, SLConvert.ToCellReference(kvp.Key.RowIndex, kvp.Key.ColumnIndex));
-                        ++i;
-                    }
+							if (fValue < 500)
+							{
+								sl.SetCellValue(i, 9, SLConvert.ToCellReference(Row, Column));
+								++i;
+							}
+						}
                 }
-
-                List<SLRstType> richtextlist = sl.GetSharedStrings();
+				}
+				List<SLRstType> richtextlist = sl.GetSharedStrings();
                 index = -1;
                 for (i = 0; i < richtextlist.Count; ++i)
                 {
@@ -107,13 +114,27 @@ namespace ConsoleApp
                 {
                     sl.SetCellValue("L4", "Apples at:");
                     i = 5; // start at row 5
-                    foreach (var kvp in cells.Where(apple => apple.Value.DataType == CellValues.SharedString &&
-                        Convert.ToInt32(apple.Value.NumericValue) == index))
-                    {
-                        sl.SetCellValue(i, 12, SLConvert.ToCellReference(kvp.Key.RowIndex, kvp.Key.ColumnIndex));
-                        ++i;
-                    }
-                }
+						   //foreach (var kvp in cells.Where(apple => apple.Value.DataType == CellValues.SharedString &&
+						   //    Convert.ToInt32(apple.Value.NumericValue) == index))
+						   //{
+						   //    sl.SetCellValue(i, 12, SLConvert.ToCellReference(kvp.Key.RowIndex, kvp.Key.ColumnIndex));
+						   //    ++i;
+						   //}
+					foreach (var outerEntry in cells)
+					{
+						foreach (var innerEntry in outerEntry.Value)
+						{
+							var Row = outerEntry.Key;
+							var Column = innerEntry.Key;
+							cell = innerEntry.Value;
+							if (cell.DataType == CellValues.SharedString && Convert.ToInt32(cell.NumericValue) == index)
+							{
+								sl.SetCellValue(i, 12, SLConvert.ToCellReference(Row, Column));
+								++i;
+							}
+						}
+					}
+				}
                 else
                 {
                     sl.SetCellValue("L4", "There are no apples :(");

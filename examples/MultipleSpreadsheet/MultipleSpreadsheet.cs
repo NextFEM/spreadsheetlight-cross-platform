@@ -18,7 +18,7 @@ namespace ConsoleApp
                 SLDocument seconddoc = new SLDocument("MultipleSpreadsheetSecond.xlsx", "Sheet2");
 
                 sl.SetCellValue(4, 2, "Things to bring");
-                
+
                 sl.SetCellValue(5, 2, firstdoc.GetCellValueAsString("B2"));
 
                 sl.SetCellValue(6, 2, seconddoc.GetCellValueAsString("B2"));
@@ -36,7 +36,7 @@ namespace ConsoleApp
                 // get the style again. Because I'm inefficient...
                 style = firstdoc.GetCellStyle("B2");
                 style.SetFontUnderline(UnderlineValues.Single);
-                style.SetPatternFill(SLThemeColorIndexValues.Accent5Color, SLThemeColorIndexValues.Accent5Color, PatternValues.Solid);
+                style.SetPatternFill(PatternValues.Solid, SLThemeColorIndexValues.Accent5Color, SLThemeColorIndexValues.Accent5Color);
 
                 firstdoc.CloseWithoutSaving();
 

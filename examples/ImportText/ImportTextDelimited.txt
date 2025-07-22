@@ -1,0 +1,4 @@
+Serial	Profit/Loss	Fruit	RandomData	DateNumeroUno	DateNumeroDos	DateNumeroTres	DateNumeroCuatro
+1	1.024,43	Apple	blahblahblah	03.09.2013	03.09.2013	9 März 2013	10 || April -=- 2013
+2	2.048,78	Banana	3,1415926	6.12.2013	6.12.2013	12 Juni 2013	11 || Juli -=- 2013
+5	4.096,34	Cherry	4.5.2013	1.10.2013	1.10.2013	10 Januar 2013	05 || Dezember -=- 2013

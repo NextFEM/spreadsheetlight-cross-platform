@@ -1,0 +1,69 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <ProductStrongTyping>
+    <ProductID>1</ProductID>
+    <ProductDescription>Amber Apples</ProductDescription>
+    <DateAdded>2012-01-11T00:00:00+08:00</DateAdded>
+    <Price>10.23</Price>
+  </ProductStrongTyping>
+  <ProductStrongTyping>
+    <ProductID>2</ProductID>
+    <ProductDescription>Alpine Apricots</ProductDescription>
+    <DateAdded>2012-02-12T00:00:00+08:00</DateAdded>
+    <Price>11.74</Price>
+  </ProductStrongTyping>
+  <ProductStrongTyping>
+    <ProductID>3</ProductID>
+    <ProductDescription>Bobba Bananas</ProductDescription>
+    <DateAdded>2012-03-13T00:00:00+08:00</DateAdded>
+    <Price>9.29</Price>
+  </ProductStrongTyping>
+  <ProductStrongTyping>
+    <ProductID>4</ProductID>
+    <ProductDescription>Beach Babaco</ProductDescription>
+    <DateAdded>2012-04-14T00:00:00+08:00</DateAdded>
+    <Price>9.05</Price>
+  </ProductStrongTyping>
+  <ProductStrongTyping>
+    <ProductID>5</ProductID>
+    <ProductDescription>Citrus Cherries</ProductDescription>
+    <DateAdded>2012-05-15T00:00:00+08:00</DateAdded>
+    <Price>7.44</Price>
+  </ProductStrongTyping>
+  <ProductStrongTyping>
+    <ProductID>6</ProductID>
+    <ProductDescription>Curvacious Cranberries</ProductDescription>
+    <DateAdded>2012-06-16T00:00:00+08:00</DateAdded>
+    <Price>6.99</Price>
+  </ProductStrongTyping>
+  <ProductStrongTyping>
+    <ProductID>7</ProductID>
+    <ProductDescription>Dicey Durians</ProductDescription>
+    <DateAdded>2012-07-17T00:00:00+08:00</DateAdded>
+    <Price>12.62</Price>
+  </ProductStrongTyping>
+  <ProductStrongTyping>
+    <ProductID>8</ProductID>
+    <ProductDescription>Drama Dingleberries</ProductDescription>
+    <DateAdded>2012-08-18T00:00:00+08:00</DateAdded>
+    <Price>10.81</Price>
+  </ProductStrongTyping>
+  <ProductStrongTyping>
+    <ProductID>9</ProductID>
+    <ProductDescription>Ecstatic Elderberries</ProductDescription>
+    <DateAdded>2012-09-19T00:00:00+08:00</DateAdded>
+    <Price>8.1</Price>
+  </ProductStrongTyping>
+  <ProductStrongTyping>
+    <ProductID>10</ProductID>
+    <ProductDescription>Emphatic Etrog</ProductDescription>
+    <DateAdded>2012-10-20T00:00:00+08:00</DateAdded>
+    <Price>9.7</Price>
+  </ProductStrongTyping>
+  <ProductStrongTyping>
+    <ProductID>1024</ProductID>
+    <ProductDescription>I change keyboards every month because they can't handle my strong typing skills</ProductDescription>
+    <DateAdded>2013-05-07T21:38:53.8791155+08:00</DateAdded>
+    <Price>2.78</Price>
+  </ProductStrongTyping>
+</DocumentElement>

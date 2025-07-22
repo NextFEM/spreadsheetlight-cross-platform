@@ -24,6 +24,6 @@ jobs:
           9.0.x
           8.0.x
     - name: Install dependencies
-      run: dotnet restore SpreadsheetLight.csproj
+      run: dotnet restore spreadsheetlight-cross-platform/SpreadsheetLight.csproj
     - name: Build
-      run: dotnet build SpreadsheetLight.csproj --configuration Release
+      run: dotnet build spreadsheetlight-cross-platform/SpreadsheetLight.csproj --configuration Release

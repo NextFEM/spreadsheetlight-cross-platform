@@ -25,16 +25,16 @@ To use this library either clone a copy of the repository or check out the [NuGe
 
 Here are some examples, there are more in the examples directory. You can run all of them by executing the **Test-Examples.ps1** PowerShell script found in that directory.
 
-* [The Hello World](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/HelloWorld/HelloWorld.cs)
-* [How to modify an existing spreadsheet](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/ModifyExistingSpreadsheet/ModifyExistingSpreadsheet.cs)
-* [How to format numbers and dates](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/NumberFormat/NumberFormat.cs)
-* [How to set font settings](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/Font/Font.cs)
-* [How to copy cells](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/CopyCell/CopyCell.cs)
-* [How to merge and unmerge cells](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/MergeCells/MergeCells.cs)
-* [How to autofit row heights and column widths](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/AutoFitRowColumn/AutoFitRowColumn.cs)
-* [How to insert hyperlinks](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/Hyperlinks/Hyperlinks.cs)
-* [How to insert tables](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/Tables/Tables.cs)
-* [How to import data from a DataTable](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/ImportDataTable/ImportDataTable.cs)
+* [The Hello World](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/blob/master/examples/HelloWorld/HelloWorld.cs)
+* [How to modify an existing spreadsheet](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/blob/master/examples/ModifyExistingSpreadsheet/ModifyExistingSpreadsheet.cs)
+* [How to format numbers and dates](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/blob/master/examples/NumberFormat/NumberFormat.cs)
+* [How to set font settings](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/blob/master/examples/Font/Font.cs)
+* [How to copy cells](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/blob/master/examples/CopyCell/CopyCell.cs)
+* [How to merge and unmerge cells](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/blob/master/examples/MergeCells/MergeCells.cs)
+* [How to autofit row heights and column widths](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/blob/master/examples/AutoFitRowColumn/AutoFitRowColumn.cs)
+* [How to insert hyperlinks](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/blob/master/examples/Hyperlinks/Hyperlinks.cs)
+* [How to insert tables](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/blob/master/examples/Tables/Tables.cs)
+* [How to import data from a DataTable](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/blob/master/examples/ImportDataTable/ImportDataTable.cs)
 
 ## Authors
 

@@ -41,8 +41,8 @@ jobs:
     - run: mkdir ${{ env.TempDirectory }}
     - name: Build & Pack
       run: |
-        dotnet build SpreadsheetLight.csproj --configuration Release
-        dotnet pack SpreadsheetLight.csproj --configuration Release --output ${{ env.TempDirectory }} /p:AssemblyVersion=${{ env.PublishVersion }} /p:Version=${{ inputs.version }} /p:FileVersion=${{ env.PublishVersion }}
+        dotnet build spreadsheetlight-cross-platform/SpreadsheetLight.csproj --configuration Release
+        dotnet pack spreadsheetlight-cross-platform/SpreadsheetLight.csproj --configuration Release --output ${{ env.TempDirectory }} /p:AssemblyVersion=${{ env.PublishVersion }} /p:Version=${{ inputs.version }} /p:FileVersion=${{ env.PublishVersion }}
     - uses: actions/upload-artifact@v4.6.2
       with:
         name: NuGet-Unsigned

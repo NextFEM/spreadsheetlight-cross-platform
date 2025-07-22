@@ -7,7 +7,11 @@
 
 This project is a fork of the [SpreadsheetLight library](https://spreadsheetlight.com/).
 
-The purpose of this fork is to create a version of the library that runs on .NET Core and is also capable of running in cross-platform environments. The library uses System.Drawing.Common, which required some platform checks to ensure those code sections only run on Windows machines.
+The purpose of this fork is to create a version of the library that runs on .NET Core and is also capable of running in cross-platform environments.
+
+The library uses System.Drawing.Common, which required some platform checks to ensure those code sections only run on Windows machines. This does mean that certain features will not work on other platforms, these features will typically silently fail. Identified so far:
+
+* `.InsertPicture()` method [Issue Reference](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/issues/10)
 
 ## Getting Started
 
@@ -19,19 +23,18 @@ To use this library either clone a copy of the repository or check out the [NuGe
 
 ### Usage
 
-Here are some examples, they are just links to the ones on the [official website](https://spreadsheetlight.com/sample-code/). There are more found on the official website, but these are a few good ones to start with.
+Here are some examples, there are more in the examples directory. You can run all of them by executing the **Test-Examples.ps1** PowerShell script found in that directory.
 
-* [The Hello World](https://spreadsheetlight.com/downloads/samplecode/HelloWorld.cs)
-* [How to save to a web stream](https://spreadsheetlight.com/downloads/samplecode/WebStreamDownload.cs)
-* [How to modify an existing spreadsheet](https://spreadsheetlight.com/downloads/samplecode/ModifyExistingSpreadsheet.cs)
-* [How to format numbers and dates](https://spreadsheetlight.com/downloads/samplecode/NumberFormat.cs)
-* [How to set font settings](https://spreadsheetlight.com/downloads/samplecode/Font.cs)
-* [How to copy cells](https://spreadsheetlight.com/downloads/samplecode/CopyCell.cs)
-* [How to merge and unmerge cells](https://spreadsheetlight.com/downloads/samplecode/MergeCells.cs)
-* [How to autofit row heights and column widths](https://spreadsheetlight.com/downloads/samplecode/AutoFitRowColumn.cs)
-* [How to insert hyperlinks](https://spreadsheetlight.com/downloads/samplecode/Hyperlinks.cs)
-* [How to insert tables](https://spreadsheetlight.com/downloads/samplecode/Tables.cs)
-* [How to import data from a DataTable](https://spreadsheetlight.com/downloads/samplecode/ImportDataTable.cs)
+* [The Hello World](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/HelloWorld/HelloWorld.cs)
+* [How to modify an existing spreadsheet](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/ModifyExistingSpreadsheet/ModifyExistingSpreadsheet.cs)
+* [How to format numbers and dates](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/NumberFormat/NumberFormat.cs)
+* [How to set font settings](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/Font/Font.cs)
+* [How to copy cells](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/CopyCell/CopyCell.cs)
+* [How to merge and unmerge cells](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/MergeCells/MergeCells.cs)
+* [How to autofit row heights and column widths](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/AutoFitRowColumn/AutoFitRowColumn.cs)
+* [How to insert hyperlinks](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/Hyperlinks/Hyperlinks.cs)
+* [How to insert tables](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/Tables/Tables.cs)
+* [How to import data from a DataTable](https://github.com/NF-Software-Inc/spreadsheetlight-cross-platform/ImportDataTable/ImportDataTable.cs)
 
 ## Authors
 
@@ -45,4 +48,5 @@ This project is licensed under the MIT License - see the [LICENSE](license.txt) 
 ## Acknowledgments
 
 Thank you to:
+
 * [Freepik](https://www.flaticon.com/authors/freepik) for the project icon

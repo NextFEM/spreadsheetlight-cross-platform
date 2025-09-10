@@ -537,6 +537,7 @@ public partial class SLDocument
         return SetCellValue(CellReference, Data, string.Empty, false);
     }
 
+#if !NETSTANDARD
     /// <summary>
     /// Set the cell value given a cell reference. Be sure to follow up with a date format style.
     /// </summary>
@@ -547,7 +548,7 @@ public partial class SLDocument
     {
         return SetCellValue(CellReference, Data.ToDateTime(TimeOnly.MinValue), string.Empty, false);
     }
-
+#endif
     /// <summary>
     /// Set the cell value given a cell reference. Be sure to follow up with a date format style.
     /// </summary>
@@ -559,7 +560,7 @@ public partial class SLDocument
     {
         return SetCellValue(CellReference, Data, string.Empty, For1904Epoch);
     }
-
+#if !NETSTANDARD
     /// <summary>
     /// Set the cell value given a cell reference. Be sure to follow up with a date format style.
     /// </summary>
@@ -571,7 +572,7 @@ public partial class SLDocument
     {
         return SetCellValue(CellReference, Data.ToDateTime(TimeOnly.MinValue), string.Empty, For1904Epoch);
     }
-
+#endif
     /// <summary>
     /// Set the cell value given a cell reference. Be sure to follow up with a date format style.
     /// </summary>
@@ -583,7 +584,7 @@ public partial class SLDocument
     {
         return SetCellValue(CellReference, Data, Format, false);
     }
-
+#if !NETSTANDARD
     /// <summary>
     /// Set the cell value given a cell reference. Be sure to follow up with a date format style.
     /// </summary>
@@ -595,7 +596,7 @@ public partial class SLDocument
     {
         return SetCellValue(CellReference, Data.ToDateTime(TimeOnly.MinValue), Format, false);
     }
-
+#endif
     /// <summary>
     /// Set the cell value given a cell reference. Be sure to follow up with a date format style.
     /// </summary>
@@ -613,7 +614,7 @@ public partial class SLDocument
 
         return SetCellValue(iRowIndex, iColumnIndex, Data, Format, For1904Epoch);
     }
-
+#if !NETSTANDARD
     /// <summary>
     /// Set the cell value given a cell reference. Be sure to follow up with a date format style.
     /// </summary>
@@ -631,7 +632,7 @@ public partial class SLDocument
 
         return SetCellValue(iRowIndex, iColumnIndex, Data.ToDateTime(TimeOnly.MinValue), Format, For1904Epoch);
     }
-
+#endif
     /// <summary>
     /// Set the cell value given the row index and column index. Be sure to follow up with a date format style.
     /// </summary>
@@ -643,7 +644,7 @@ public partial class SLDocument
     {
         return SetCellValue(RowIndex, ColumnIndex, Data, string.Empty, false);
     }
-
+#if !NETSTANDARD
     /// <summary>
     /// Set the cell value given the row index and column index. Be sure to follow up with a date format style.
     /// </summary>
@@ -655,7 +656,7 @@ public partial class SLDocument
     {
         return SetCellValue(RowIndex, ColumnIndex, Data.ToDateTime(TimeOnly.MinValue), string.Empty, false);
     }
-
+#endif
     /// <summary>
     /// Set the cell value given the row index and column index. Be sure to follow up with a date format style.
     /// </summary>
@@ -668,7 +669,7 @@ public partial class SLDocument
     {
         return SetCellValue(RowIndex, ColumnIndex, Data, string.Empty, For1904Epoch);
     }
-
+#if !NETSTANDARD
     /// <summary>
     /// Set the cell value given the row index and column index. Be sure to follow up with a date format style.
     /// </summary>
@@ -681,7 +682,7 @@ public partial class SLDocument
     {
         return SetCellValue(RowIndex, ColumnIndex, Data.ToDateTime(TimeOnly.MinValue), string.Empty, For1904Epoch);
     }
-
+#endif
     /// <summary>
     /// Set the cell value given the row index and column index. Be sure to follow up with a date format style.
     /// </summary>
@@ -694,7 +695,7 @@ public partial class SLDocument
     {
         return SetCellValue(RowIndex, ColumnIndex, Data, Format, false);
     }
-
+#if !NETSTANDARD
     /// <summary>
     /// Set the cell value given the row index and column index. Be sure to follow up with a date format style.
     /// </summary>
@@ -707,7 +708,7 @@ public partial class SLDocument
     {
         return SetCellValue(RowIndex, ColumnIndex, Data.ToDateTime(TimeOnly.MinValue), Format, false);
     }
-
+#endif
     /// <summary>
     /// Set the cell value given the row index and column index. Be sure to follow up with a date format style.
     /// </summary>
@@ -5474,7 +5475,7 @@ public partial class SLDocument
                     if (sCellRef2.StartsWith("$"))
                     {
                         bIsAbsoluteColumn2 = true;
-                        sCellRef2 = sCellRef2[1..];
+                        sCellRef2 = sCellRef2.Substring(1);
                     }
 
                     iColumnIndex1 = SLTool.ToColumnIndex(sCellRef1);

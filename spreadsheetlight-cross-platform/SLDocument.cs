@@ -346,7 +346,7 @@ public partial class SLDocument : IDisposable
     {
         SpreadsheetStream.Position = 0;
         byte[] baData = new byte[SpreadsheetStream.Length];
-        SpreadsheetStream.ReadExactly(baData, 0, baData.Length);
+        SpreadsheetStream.Read(baData, 0, baData.Length);
         memstream = new MemoryStream();
         memstream.Write(baData, 0, baData.Length);
 
@@ -366,7 +366,7 @@ public partial class SLDocument : IDisposable
     {
         SpreadsheetStream.Position = 0;
         byte[] baData = new byte[SpreadsheetStream.Length];
-		SpreadsheetStream.ReadExactly(baData, 0, baData.Length);
+		SpreadsheetStream.Read(baData, 0, baData.Length);
         memstream = new MemoryStream();
         memstream.Write(baData, 0, baData.Length);
 

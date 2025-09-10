@@ -525,7 +525,7 @@ public partial class SLDocument
                     using (FileStream fs = new FileStream(comm.Fill.BlipFileName, FileMode.Open))
                     {
                         byte[] ba = new byte[fs.Length];
-                        fs.ReadExactly(ba, 0, ba.Length);
+                        fs.Read(ba, 0, ba.Length);
                         string sImageData = Convert.ToBase64String(ba);
                         if (dictImageData.ContainsKey(sImageData))
                         {

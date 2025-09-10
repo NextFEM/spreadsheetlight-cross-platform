@@ -456,10 +456,12 @@ public partial class SLDocument
                     {
                         this.SetCellValue(iRowIndex, iColumnIndex, (DateTime)dr.ItemArray[j]);
                     }
+#if !NETSTANDARD
                     else if (taColumns[j] == typeof(DateOnly))
                     {
                         this.SetCellValue(iRowIndex, iColumnIndex, ((DateOnly)dr.ItemArray[j]));
                     }
+#endif
                     else if (taColumns[j] == typeof(short))
                     {
                         this.SetCellValue(iRowIndex, iColumnIndex, (short)dr.ItemArray[j]);
@@ -496,10 +498,12 @@ public partial class SLDocument
                     {
                         this.SetCellValue(iRowIndex, iColumnIndex, ((TimeSpan)dr.ItemArray[j]).ToString());
                     }
+#if !NETSTANDARD
                     else if (taColumns[j] == typeof(TimeOnly))
                     {
                         this.SetCellValue(iRowIndex, iColumnIndex, ((TimeOnly)dr.ItemArray[j]).ToString());
                     }
+#endif
                     else
                     {
                         this.SetCellValue(iRowIndex, iColumnIndex, dr.ItemArray[j].ToString());
